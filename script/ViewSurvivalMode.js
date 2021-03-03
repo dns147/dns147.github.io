@@ -25,7 +25,8 @@ class ViewSurvivalMode {
         this.gameOverInput = null;
         this.btnSubmit = null;
         this.btnExit = null;
-        this.audioTheme = null;
+        this.audioTheme1 = null;
+        this.audioTheme2 = null;
         this.audioGun = null;
         this.audioRiffle = null;
     
@@ -238,9 +239,13 @@ class ViewSurvivalMode {
        this.btnExit.setAttribute("href", "index.html");
        this.gameOverDiv.appendChild(this.btnExit);
  
-       this.audioTheme = document.createElement("audio");
-       this.audioTheme.setAttribute("src", "audio/survival1.mp3");
- 
+       this.audioTheme1 = document.createElement("audio");
+       this.audioTheme1.setAttribute("src", "audio/survival1.mp3");
+
+       this.audioTheme2 = document.createElement("audio");
+       this.audioTheme2.setAttribute("src", "audio/survival2.mp3");
+       this.audioTheme2.setAttribute("loop", "loop");
+
        this.audioGun = document.createElement("audio");
        this.audioGun.setAttribute("src", "audio/gun1.mp3");
  
@@ -282,23 +287,10 @@ class ViewSurvivalMode {
     init() { 
        let that = this;
 
-       //this.audioTheme.play();
-
-       let indexAud = 0; 
-
-       function playNext() {
-          if (indexAud < 2) {
-             that.audioTheme.src = "audio/survival2.mp3";
-             that.audioTheme.load(); 
-             that.audioTheme.play();
-             indexAud += 1;
-          } else {
-             that.audioTheme.removeEventListener("ended", playNext);
-          }
-       }
-       
-       this.audioTheme.addEventListener("ended", playNext);
-
+       this.audioTheme1.addEventListener("ended", () => {
+          that.audioTheme2.play();
+       });
+     
        that.reset();
        that.lastTime = Date.now();
        that.main();
@@ -441,7 +433,7 @@ class ViewSurvivalMode {
           that.player.pos[1] -= that.playerSpeed * dt;
           that.player.rotate = -Math.PI;
           that.player.sprite = that.makePlayerWalk(that.person, that.player.rotate);
-       } else if ((that.player.rotate === -Math.PI) && control["Control"] && !this.isGameOver && Date.now() - that.lastFire > that.intervalBullet) {
+       } else if ((that.player.rotate === -Math.PI) && control["Space"] && !this.isGameOver && Date.now() - that.lastFire > that.intervalBullet) {
           that.bullet("up", that.player.rotate);
        } else if ((that.player.rotate === -Math.PI) && (Date.now() - that.lastFire > 100) && (Date.now() - that.lastFire < 200)) {
           that.player.sprite = that.makePlayerIdle(that.person, that.player.rotate);
@@ -451,7 +443,7 @@ class ViewSurvivalMode {
           that.player.pos[1] += that.playerSpeed * dt;
           that.player.rotate = 0;
           that.player.sprite = that.makePlayerWalk(that.person, that.player.rotate);
-       } else if ((that.player.rotate === 0) && control["Control"] && !this.isGameOver && Date.now() - that.lastFire > that.intervalBullet) {
+       } else if ((that.player.rotate === 0) && control["Space"] && !this.isGameOver && Date.now() - that.lastFire > that.intervalBullet) {
           that.bullet("down", that.player.rotate);
        } else if ((that.player.rotate === 0) && (Date.now() - that.lastFire > 100) && (Date.now() - that.lastFire < 200)) {
           that.player.sprite = that.makePlayerIdle(that.person, that.player.rotate);
@@ -461,7 +453,7 @@ class ViewSurvivalMode {
           that.player.pos[0] -= that.playerSpeed * dt;
           that.player.rotate = Math.PI/2;
           that.player.sprite = that.makePlayerWalk(that.person, that.player.rotate);
-       } else if ((that.player.rotate === Math.PI/2) && control["Control"] && !this.isGameOver && Date.now() - that.lastFire > that.intervalBullet) {
+       } else if ((that.player.rotate === Math.PI/2) && control["Space"] && !this.isGameOver && Date.now() - that.lastFire > that.intervalBullet) {
           that.bullet("back", that.player.rotate);
        } else if ((that.player.rotate === Math.PI/2) && (Date.now() - that.lastFire > 100) && (Date.now() - that.lastFire < 200)) {
           that.player.sprite = that.makePlayerIdle(that.person, that.player.rotate);
@@ -471,7 +463,7 @@ class ViewSurvivalMode {
           that.player.pos[0] += that.playerSpeed * dt;
           that.player.rotate = -Math.PI/2;
           that.player.sprite = that.makePlayerWalk(that.person, that.player.rotate);
-       } else if ((that.player.rotate === -Math.PI/2) && control["Control"] && !this.isGameOver && (Date.now() - that.lastFire > that.intervalBullet)) {
+       } else if ((that.player.rotate === -Math.PI/2) && control["Space"] && !this.isGameOver && (Date.now() - that.lastFire > that.intervalBullet)) {
           that.bullet("forward", that.player.rotate);
        } else if ((that.player.rotate === -Math.PI/2) && (Date.now() - that.lastFire > 100) && (Date.now() - that.lastFire < 200)) {
           that.player.sprite = that.makePlayerIdle(that.person, that.player.rotate);
@@ -829,8 +821,11 @@ class ViewSurvivalMode {
  
     // Game over
     gameOver() {
-       this.audioTheme.pause();
-       this.audioTheme.currentTime = 0;
+       this.audioTheme1.pause();
+       this.audioTheme1.currentTime = 0;
+
+       this.audioTheme2.pause();
+       this.audioTheme2.currentTime = 0;
  
        this.modalContainer.classList.add("my__modal_gameOver");
        this.gameOverDiv.style.display = "block";
@@ -843,7 +838,7 @@ class ViewSurvivalMode {
     reset() {
        let that = this;
  
-       this.audioTheme.play();
+       this.audioTheme1.play();
  
        this.gameOverDiv.style.display = "none";
        this.btnPlayAgain.style.display = "none";

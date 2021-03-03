@@ -339,8 +339,6 @@ class ViewMap1 {
    init() { 
       let that = this;
 
-      //that.audioTheme.play();
-
       that.reset();
       that.lastTime = Date.now();
       that.main();
@@ -459,7 +457,7 @@ class ViewMap1 {
          that.player.pos[1] -= that.playerSpeed * dt;
          that.player.rotate = -Math.PI;
          that.player.sprite = that.makePlayerWalk(that.person, that.player.rotate);
-      } else if ((that.player.rotate === -Math.PI) && control["Control"] && !this.isGameOver && Date.now() - that.lastFire > that.intervalBullet) {
+      } else if ((that.player.rotate === -Math.PI) && control["Space"] && !this.isGameOver && Date.now() - that.lastFire > that.intervalBullet) {
          that.bullet("up", that.player.rotate);
       } else if ((that.player.rotate === -Math.PI) && (Date.now() - that.lastFire > 100) && (Date.now() - that.lastFire < 200)) {
          that.player.sprite = that.makePlayerIdle(that.person, that.player.rotate);
@@ -469,7 +467,7 @@ class ViewMap1 {
          that.player.pos[1] += that.playerSpeed * dt;
          that.player.rotate = 0;
          that.player.sprite = that.makePlayerWalk(that.person, that.player.rotate);
-      } else if ((that.player.rotate === 0) && control["Control"] && !this.isGameOver && Date.now() - that.lastFire > that.intervalBullet) {
+      } else if ((that.player.rotate === 0) && control["Space"] && !this.isGameOver && Date.now() - that.lastFire > that.intervalBullet) {
          that.bullet("down", that.player.rotate);
       } else if ((that.player.rotate === 0) && (Date.now() - that.lastFire > 100) && (Date.now() - that.lastFire < 200)) {
          that.player.sprite = that.makePlayerIdle(that.person, that.player.rotate);
@@ -479,7 +477,7 @@ class ViewMap1 {
          that.player.pos[0] -= that.playerSpeed * dt;
          that.player.rotate = Math.PI/2;
          that.player.sprite = that.makePlayerWalk(that.person, that.player.rotate);
-      } else if ((that.player.rotate === Math.PI/2) && control["Control"] && !this.isGameOver && Date.now() - that.lastFire > that.intervalBullet) {
+      } else if ((that.player.rotate === Math.PI/2) && control["Space"] && !this.isGameOver && Date.now() - that.lastFire > that.intervalBullet) {
          that.bullet("back", that.player.rotate);
       } else if ((that.player.rotate === Math.PI/2) && (Date.now() - that.lastFire > 100) && (Date.now() - that.lastFire < 200)) {
          that.player.sprite = that.makePlayerIdle(that.person, that.player.rotate);
@@ -489,7 +487,7 @@ class ViewMap1 {
          that.player.pos[0] += that.playerSpeed * dt;
          that.player.rotate = -Math.PI/2;
          that.player.sprite = that.makePlayerWalk(that.person, that.player.rotate);
-      } else if ((that.player.rotate === -Math.PI/2) && control["Control"] && !this.isGameOver && (Date.now() - that.lastFire > that.intervalBullet)) {
+      } else if ((that.player.rotate === -Math.PI/2) && control["Space"] && !this.isGameOver && (Date.now() - that.lastFire > that.intervalBullet)) {
          that.bullet("forward", that.player.rotate);
       } else if ((that.player.rotate === -Math.PI/2) && (Date.now() - that.lastFire > 100) && (Date.now() - that.lastFire < 200)) {
          that.player.sprite = that.makePlayerIdle(that.person, that.player.rotate);
@@ -1840,6 +1838,10 @@ class ViewMap1 {
    gameOver() {
       this.audioTheme.pause();
       this.audioTheme.currentTime = 0;
+
+      this.audioZombWalk.pause();
+      this.audioZombWalk.currentTime = 0;
+
 
       this.modalContainer.classList.add("my__modal_gameOver");
       this.gameOverDiv.style.display = "block";

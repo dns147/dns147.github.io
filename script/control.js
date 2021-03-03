@@ -5,11 +5,11 @@
     document.addEventListener("keyup", setKeyUp);
 
     function setKeyDown(event) {
-        controlKeys[event.key] = true;
+        controlKeys[event.code] = true;
     }
     
     function setKeyUp(event) {
-        controlKeys[event.key] = false;
+        controlKeys[event.code] = false;
     }
 
     window.control = controlKeys;
