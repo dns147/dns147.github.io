@@ -385,17 +385,18 @@ body {
 
 .btn_exit {
     display: block;
-    top: 60%;
+    top: 25%;
     left: 50%;
     transform: translateX(-50%);
     background-color: #f44336;    
     box-shadow: 0 0 10px #f388b1;
     text-decoration: none;
     text-align: center;
+    position: relative;
 }
 
 .btn_exit:active {
-    top: 60.5%;
+    top: 25.5%;
     box-shadow: 0 1px 0 #385e25;
     outline: none;
 }
