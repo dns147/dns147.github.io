@@ -402,11 +402,11 @@ body {
 }
 
 .btn_exit_survive {
-    top: 90%;
+    top: 60%;
 }
 
 .btn_exit_survive:active {
-    top: 90.5%;
+    top: 60.5%;
 }
 
 .choiceItemDiv {
