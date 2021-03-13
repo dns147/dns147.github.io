@@ -1,0 +1,595 @@
+@font-face {
+    font-family: "vikingsquad";
+    src: url("../fonts/vikingsquad.ttf");
+}
+
+@keyframes neon1 {
+    from {
+        text-shadow: 
+        0 0 10px #fff,
+        0 0 20px  #fff,
+        0 0 30px  #fff,
+        0 0 40px  #FF1177,
+        0 0 70px  #FF1177,
+        0 0 80px  #FF1177,
+        0 0 100px #FF1177,
+        0 0 150px #FF1177;
+    }
+    to {
+        text-shadow: 0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #fff,
+        0 0 20px #FF1177,
+        0 0 35px #FF1177,
+        0 0 40px #FF1177,
+        0 0 50px #FF1177,
+        0 0 75px #FF1177;
+    }
+}
+
+@keyframes neon2 {
+    from {
+        text-shadow: 0 0 10px #fff,
+        0 0 20px  #fff,
+        0 0 30px  #fff,
+        0 0 40px  #228DFF,
+        0 0 70px  #228DFF,
+        0 0 80px  #228DFF,
+        0 0 100px #228DFF,
+        0 0 150px #228DFF;
+    }
+    to {
+        text-shadow: 0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #fff,
+        0 0 20px #228DFF,
+        0 0 35px #228DFF,
+        0 0 40px #228DFF,
+        0 0 50px #228DFF,
+        0 0 75px #228DFF;
+    }
+}
+
+@keyframes neon3 {
+    from {
+        text-shadow: 0 0 10px #fff,
+        0 0 20px  #fff,
+        0 0 30px  #fff,
+        0 0 40px  #FFDD1B,
+        0 0 70px  #FFDD1B,
+        0 0 80px  #FFDD1B,
+        0 0 100px #FFDD1B,
+        0 0 150px #FFDD1B;
+    }
+    to {
+        text-shadow: 0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #fff,
+        0 0 20px #FFDD1B,
+        0 0 35px #FFDD1B,
+        0 0 40px #FFDD1B,
+        0 0 50px #FFDD1B,
+        0 0 75px #FFDD1B;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.75;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.main {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: url("../images/cursor.png"), pointer;
+    position: relative;    
+}
+
+.main_canvas {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../images/background_canvas.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: url("../images/cursor.png"), pointer;
+    position: relative;    
+}
+
+.my__canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.my__modal {
+    margin: 0px;
+    height: 100vh;
+    width: 100vw;
+    position: relative; 
+}
+
+.my__modal_canvas {
+    position: absolute;
+}
+
+.nameGame {
+    margin: 0;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 70px;
+    font-family: "vikingsquad", sans-serif;
+    text-transform: uppercase;
+    font-size: calc(1rem + 8vw);
+    letter-spacing: 15px;
+    text-align: center;
+    cursor: url("../images/cursor.png"), pointer;
+    color: rgb(207, 207, 207, 207);
+    text-shadow: 
+    0px 0px 1px rgb(167, 167, 167, 167),
+    0px 1px 1px rgb(167, 167, 167, 167),
+    0px 2px 1px rgb(167, 167, 167, 167),
+
+    1px 1px 1px rgb(167, 167, 167, 167),
+    1px 2px 1px rgb(167, 167, 167, 167),
+    1px 3px 1px rgb(167, 167, 167, 167),
+
+    2px 2px 1px rgb(167, 167, 167, 167),
+    2px 3px 1px rgb(167, 167, 167, 167),
+    2px 4px 1px rgb(167, 167, 167, 167),
+
+    1px 10px 30px rgba(0, 0, 0, 0.8),
+    1px 10px 70px rgba(0, 0, 0, 0.8),
+
+    1px 5px 5px rgba(0, 0, 0, 0.8),
+
+    -5px 5px 20px rgba(0, 0, 0, 0.8),
+
+    5px 5px 20px rgba(0, 0, 0, 0.8),
+
+    1px 1px 120px rgba(255, 255, 255, 0.5);
+}
+
+.menu {
+    font-family: "vikingsquad", sans-serif;
+    text-transform: uppercase;
+    font-size: calc(1rem + 3vw);
+    letter-spacing: 5px;
+    text-align: center;
+    position: relative;
+    top: 100px;
+}
+
+.btn_menu {
+    text-decoration: none;
+    transition: all 0.5s;
+}
+
+.btn_menu:hover {
+    color: #ffffff;
+    cursor: url("../images/cursor.png"), pointer;
+}
+
+.btn_start {
+    color: #FF1177;
+}
+
+.btn_start:hover {
+    animation: neon1 1.5s ease-in-out infinite alternate;
+}
+
+.btn_survival {
+    color: #228DFF;
+}
+
+.btn_survival:hover {
+    animation: neon2 1.5s ease-in-out infinite alternate;
+}
+
+.btn_records {
+    color: #FFDD1B;
+}
+
+.btn_records:hover {
+    animation: neon3 1.5s ease-in-out infinite alternate;
+}
+
+.start_audio {
+    width: calc(1rem + 3vw);
+    height: calc(1rem + 3vw);
+    border-radius: 50%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 112px;
+}
+
+.start_audio:before,
+.start_audio:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 50%; 
+}
+
+.start_audio:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: calc(1rem + 0.1vw);
+    content: "\f04b";
+    color: white;
+    display: grid;
+    place-items: center;
+    background-color: red;
+    z-index: 10;
+}
+
+.start_audio:after {
+    background-color: red;
+    z-index: 1;
+    animation: pulse 1000ms infinite;
+}
+
+.stop_audio:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: calc(1rem + 0.1vw);
+    content: "\f04d";
+    color: white;
+    display: grid;
+    place-items: center;
+    background-color: red;
+    z-index: 10;
+}
+
+.score {
+    position: absolute;
+    right: 100px;
+    top: 10px;
+    color: white;
+    font-family: "vikingsquad", sans-serif;
+    font-size: calc(1rem + 1.3vw);
+    width: 6%;
+    background: #9e9e9e;
+}
+
+.gameOverDiv {
+    display: none;
+    background-image: url("../images/background2.png");
+    background-size: cover;
+    background-repeat: no-repeat;    
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20%;
+    height: 60%;
+    width: 60%;
+}
+
+.gameOverTxt {
+    margin: 0px;
+    margin-top: 15px;
+    color: #9e9e9e;
+    font-family: "vikingsquad", sans-serif;
+    font-size: calc(1rem + 8vw);
+    text-align: center;
+    letter-spacing: 15px;
+    text-shadow: 2px 0 #222222, -1px 0 yellow, -2px 0 green;
+}
+
+.form {
+    position: absolute;
+	top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    font-family: "vikingsquad", sans-serif;
+    font-size: calc(1rem + 2vw);
+}
+
+.gameOverInput {
+    width: 100%;
+    font-family: "vikingsquad", sans-serif;
+    font-size: calc(1rem + 1.5vw);
+    text-indent: 5px;
+    border: solid #ffffff 1px;
+    border-radius: 3px;
+}
+
+.gameOverInput:focus {
+    outline: none;
+    border-radius: 3px;
+    box-shadow: 0px 0px 30px 0px #ffffff;
+}
+
+.btn_submit {
+    color: #ffffff;
+    font-family: "vikingsquad", sans-serif;
+    font-size: calc(1rem + 0.7vw);
+    padding: 5px 10px;
+    width: 30%;
+    position: absolute;
+    background-color: #607d8b;    
+    box-shadow: 0 0 10px #ffffff;
+    border: none;
+    line-height: 20px;
+    outline: none;
+    top: 50px;
+    right: 0;
+    display: none;
+}
+
+.btn_submit:hover {
+    background-color: yellowgreen;
+    box-shadow: 0 0 10px #508530;
+    text-decoration: none;
+    color: #ffffff;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn_submit:active {
+    top: 53px;
+    box-shadow: 0 1px 0 #385e25;
+    outline: none;
+}
+
+.btn_playAgain {
+    display: none;
+    position: relative;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00bcd4;    
+    box-shadow: 0 0 10px #82f3ee;
+    width: 20%;
+    border-radius: 15px;
+}
+
+.btn_playAgain:active {
+    top: 15.5%;
+    box-shadow: 0 1px 0 #385e25;
+    outline: none;
+}
+
+.btn_playAgain_survave {
+    top: 45%;
+}
+
+.btn_playAgain_survave:active {
+    top: 45.5%;
+}
+
+.btn_exit {
+    display: block;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f44336;    
+    box-shadow: 0 0 10px #f388b1;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    width: 15%;
+    border-radius: 15px;
+}
+
+.btn_exit:active {
+    top: 25.5%;
+    box-shadow: 0 1px 0 #385e25;
+    outline: none;
+}
+
+.btn_exit_survive {
+    top: 55%;
+}
+
+.btn_exit_survive:active {
+    top: 55.5%;
+}
+
+.choiceItemDiv {
+    position: absolute;
+    width: 50%;
+    height: 55%;
+    background: #3c3838;
+    top: 25%;
+    left: 25%;
+    font-family: "vikingsquad", sans-serif;
+    font-size: calc(1rem + 1.5vw);
+    letter-spacing: calc(0.5rem);
+    color: #4caf50;
+    border: ridge #f44336 5px;
+}
+
+.nameChoicePerson {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.nameChoiceWeapon {
+    margin-top: 190px;
+    color: #0289ff;
+}
+
+.itemPerson {
+    display: inline-flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.itemMan {
+    background-image: url("../images/man_icon.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 110px;
+    width: 110px;
+    margin-right: 30px;
+}
+
+.itemMan:hover {
+    box-shadow: 0 0 10px #26f730;
+}
+
+.itemGirl {
+    background-image: url("../images/girl_icon.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 110px;
+    width: 110px;
+}
+
+.itemGirl:hover {
+    box-shadow: 0 0 10px #26f730;
+}
+
+.itemChoiced {
+    box-shadow: 0 0 10px #26f730;
+}
+
+.itemGan {
+    background-image: url("../images/items_gun.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 6vw;
+    margin-right: 3vw;
+}
+
+.itemGan:hover {
+    box-shadow: 0 0 10px #26f730;
+}
+
+.itemRiffle {
+    background-image: url("../images/items_riffle.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 13vw;
+    margin-right: 3vw;
+}
+
+.itemRiffle:hover {
+    box-shadow: 0 0 10px #26f730;
+}
+
+.itemFirethrower {
+    background-image: url("../images/items_fire.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 5vh;
+    width: 10vw;
+}
+
+.itemFirethrower:hover {
+    box-shadow: 0 0 10px #26f730;
+}
+
+.btn_play {
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    font-family: "vikingsquad", sans-serif;
+    font-size: calc(1rem + 0.7vw);
+    padding: 5px 10px;
+    width: 30%;
+    position: absolute;
+    background-color: gray;    
+    box-shadow: 0 0 10px #ffffff;
+    border: none;
+    line-height: 20px;
+    outline: none;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.btn_play:active {
+    top: 80.3%;
+    box-shadow: 0 1px 0 #95f0e7;
+    outline: none;
+}
+
+.modalRecords {
+    left: 25%;
+    top: 20%;
+    height: 75vh;
+    width: 45vw;
+    border: ridge #e91e63 5px;
+    text-align: center;
+}
+
+.recordsH2 {
+    color: #2196f3;
+}
+
+.list {
+    display: inline-block;
+    text-align: left;
+    color: #ffc107;
+    font-size: calc(1rem + 1.3vw);
+    text-align: center;
+}
+
+.list tr:nth-child(n) td {
+    width: 170px;    
+}
+
+.list tr:nth-child(n) td:nth-child(1) {
+    width: 60px;    
+}
+
+.list tr:nth-child(odd) {
+    color: #4caf50;;    
+}
+
+.list tr:nth-child(even) {
+    color: #ff9800;    
+}
+
+.list tr:nth-child(1) {
+    color: #ff00bf;    
+}
+
+.dot {
+    font-size: 15px;
+}
+
+.btn_close {
+    top: 92%;
+    background-color: #673ab7;
+    width: 15%;
+    text-decoration: none;
+    letter-spacing: 0;
+}
+
+.btn_close:active {
+    top: 92.3%;
+}
+
+.loader {
+    position: absolute;
+    top: 40%;
+}
