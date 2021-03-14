@@ -786,11 +786,11 @@ class ViewSurvivalMode {
    renderGame() {
       let that = this;
 
-      that.renderEntities(that.mines); //--- отрисовка мин ---
       that.renderEntities(that.zombies1Killed);
       that.renderEntities(that.zombies2Killed);
       that.renderEntities(that.zombies3Killed);  
       that.renderEntities(that.zombies4Killed);        
+      that.renderEntities(that.mines); //--- отрисовка мин ---
 
       if (!that.isGameOver) {
          that.renderPlayer(that.player); //--- отрисовка игрока ---
