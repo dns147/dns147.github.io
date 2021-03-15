@@ -1,6 +1,6 @@
 //--- маршруты ---//
 const routes = {
-   main: ViewHomePage,
+   ZombieHunter: ViewHomePage,
    records: ViewListRecords,   
    start: ViewMap1,
    survival: ViewSurvivalMode,
