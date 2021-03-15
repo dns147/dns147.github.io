@@ -12,7 +12,7 @@ class GameModel {
  	}
 
  	updateState() {
-      	const hashPageName = window.location.hash.slice(1).toLowerCase();
+      	const hashPageName = window.location.hash.slice(1);
       	this.view.renderContent(hashPageName);
    	}	
 
