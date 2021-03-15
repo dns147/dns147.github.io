@@ -21,7 +21,7 @@ class GameView {
    renderContent(hashPageName) {
       let that = this;
 
-      this.routeName = "main";
+      this.routeName = "ZombieHunter";
 
       if (hashPageName.length > 0) {
          that.routeName = hashPageName in routes ? hashPageName : "error";
