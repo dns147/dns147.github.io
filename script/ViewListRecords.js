@@ -48,7 +48,7 @@ class ViewListRecords {
         let btnClose = document.createElement("a");
         btnClose.innerHTML = "Close";
         btnClose.classList.add("btn_play", "btn_close");
-        btnClose.setAttribute("href", "#main");
+        btnClose.setAttribute("href", "#ZombieHunter");
         btnClose.setAttribute("id", "close");
         this.modalRecords.appendChild(btnClose);
 
