@@ -312,9 +312,9 @@ body {
     position: relative;
     top: 10%;
     margin: 30px;
+    background-color: #022d42d1;
     visibility: hidden;
     width: 21vw;
-    border: double rgb(19 58 95) 5px;
     padding-left: 10px;
     -webkit-box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
             box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
@@ -334,7 +334,7 @@ body {
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     transition: all 0.5s;
-    color: #030282;
+    color: #c5e1a5;
 }
 
 .btn_menu:hover {
