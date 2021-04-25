@@ -309,12 +309,12 @@ body {
     text-transform: uppercase;
     font-size: calc(1rem + 3vw);
     letter-spacing: 3px;
+    text-align: center;
     position: relative;
     top: 10%;
     margin: 30px;
     visibility: hidden;
     width: 21vw;
-    padding-left: 10px;
     -webkit-box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
             box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
     background-color: #022d42d1;
